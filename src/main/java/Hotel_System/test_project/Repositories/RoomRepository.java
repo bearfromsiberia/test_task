@@ -10,4 +10,6 @@ import java.util.List;
 public interface RoomRepository extends JpaRepository<Room,Long> {
 
     public List<Room> findRoomByTypeofroom(Boolean type_of_room);
+
+    public List<Room> findRoomByTypeofcomfortIgnoreCase(String type_of_comfort);
 }
