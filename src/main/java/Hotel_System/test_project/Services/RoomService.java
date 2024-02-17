@@ -58,4 +58,7 @@ public class RoomService {
             System.out.println("В комнате кто-то есть");
         }
     }
+    public void updateRoom(Room room){
+        roomRepository.save(room);
+    }
 }

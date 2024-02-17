@@ -14,7 +14,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import java.sql.Date;
 @EnableJpaRepositories
 @SpringBootApplication
-public class TestProjectApplication implements CommandLineRunner {
+public class TestProjectApplication {
 
 	@Autowired
 	GuestsRepository guestRepository;
@@ -27,20 +27,6 @@ public class TestProjectApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(TestProjectApplication.class, args);
-	}
-
-	@Override
-	public void run(String... args) throws Exception
-	{
-		Room room = new Room(1,2,3,true,"комфорт",5,
-				Date.valueOf("2025-10-20"),Date.valueOf("2025-10-20"));
-		roomRepository.save(room);
-		roomService.deleteRoom(room);
-		roomService.addRoom(new Room(2,4,5,true,"комфорт",5,
-				Date.valueOf("2026-10-20"),Date.valueOf("2026-10-20")));
-		guestRepository.save(new Guests(1,1,"Ломтев","Илья","Константинович",
-				true,Date.valueOf("2025-10-20"),Date.valueOf("2025-10-20")));
-		System.out.println(roomService.findAllRoom());
 	}
 
 }

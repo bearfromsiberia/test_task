@@ -21,8 +21,16 @@ public class GuestsService {
         return guestsRepository.findGuestsByGender(gender);
     }
 
+    public void addGuest(Guests guests){
+        guestsRepository.save(guests);
+    }
 
+    public void delete(Guests guests){
+        guestsRepository.delete(guests);
+    }
 
-
+    public void updateGuest(Guests guests){
+        guestsRepository.save(guests);
+    }
 
 }
