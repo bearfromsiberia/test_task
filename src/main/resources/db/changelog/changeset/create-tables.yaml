@@ -1,0 +1,96 @@
+databaseChangeLog:
+  - changeSet:
+      id: create-tables
+      author: Ilya
+      changes:
+        - createTable:
+            tableName: room
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: floor
+                  type: smallInt
+                  constraints:
+                    nullable: false
+              - column:
+                  name: room_num
+                  type: smallInt
+                  constraints:
+                    nullable: false
+              - column:
+                  name: typeofroom
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: typeofcomfort
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: space
+                  type: smallInt
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dateofcreating
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dateofupdating
+                  type: date
+                  constraints:
+                    nullable: false
+        - createTable:
+            tableName: guests
+            columns:
+              - column:
+                  name: id
+                  type: serial
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: roomid
+                  type: smallInt
+                  constraints:
+                    foreignKeyName: rooms_guests
+                    references: room(id)
+              - column:
+                  name: surname
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: fathername
+                  type: varchar(200)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: gender
+                  type: boolean
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dateofarriving
+                  type: date
+                  constraints:
+                    nullable: false
+              - column:
+                  name: dateofupdating
+                  type: date
+                  constraints:
+                    nullable: false
